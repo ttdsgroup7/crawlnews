@@ -75,7 +75,11 @@ class Nation():
     def get_name(self):
         alldata = self.text.values()
         for i in alldata:
-            nation = geograpy.get_geoPlace_context(text=i).countries
+            # There is now a get_geoPlace_context function that will limit the search to the GPE label of NLTK
+            # thus ignoring PERSON and ORGANIZATION entries as the orginal function get_place_context would do:
+
+            # get_place can find more, cost more time
+            nation = geograpy.get_place_context(text=i).countries
             if not nation:
                 self.res.append('None')
             else:
