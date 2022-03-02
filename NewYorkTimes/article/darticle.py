@@ -24,7 +24,7 @@ theme = {
 
 class ArticleFetcher:
 
-    RETRY = 5
+    RETRY = 3
     def __init__(self, config):
         self.config = config
         self.download_link_fetcher = None
@@ -73,7 +73,7 @@ class ArticleFetcher:
                 if html is not None:
                     print('Retrying success')
                     break
-                sec+=5
+                #sec+=5
         if html is None:
             print('article ', link, 'failed')
             return None
@@ -87,6 +87,7 @@ class ArticleFetcher:
             print('>>> {c} in {t} articles\r'.format(c=current_link, t=total_links), end='')
             current_link += 1
             article = self._extract_information(link, date)
+            time.sleep(self.config.sleep)
             if article is not None:
                 articles.append(article)
             else:
