@@ -10,6 +10,6 @@ Command:
 3 will start 2 in the background.
 
 # Requirements:
-conda env create -f BBC-spider.yml
+conda env create -f TTDS-spider.yaml
 
 conda activate TTDS-spider  
