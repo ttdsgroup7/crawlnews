@@ -1,4 +1,5 @@
-from scrapy import cmdline
+#from scrapy import cmdline
+import os
 import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 import time
@@ -9,7 +10,8 @@ def crawler_command():
     time_now = time.time()
     global cmd1
     cmd1 = cmd1 + "-s LOG_FILE={0}.log".format(time_now)
-    cmdline.execute(cmd1.split())
+    os.system(cmd1)
+    #cmdline.execute(cmd1.split())
 
 
 if __name__ == '__main__':
