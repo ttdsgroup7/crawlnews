@@ -9,3 +9,7 @@ python sql.py
 
 
 2.Is to transfer the crawled data to the database
+
+OR
+
+python CNN_scrapy.py
