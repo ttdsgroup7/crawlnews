@@ -27,7 +27,7 @@ themedic = {"business": "business", "climate": "climate", "coronavirus": "corona
              "india": "business", "success": "business", "homes": "business", "art": "entertainment", "football": "sports",
              "car": "entertainment", "foodanddrink": "entertainment", "motorsport": "sports", "business-food": "entertainment",
              "culture": "entertainment", "beauty": "entertainment", "travel-stay": "travel", "luxury": "entertainment"}
-db = MySQLdb.connect("34.89.114.242", "root", "!ttds2021", "TTDS_group7", port = 3306)
+db = MySQLdb.connect("34.89.114.242", "root", "!ttds2021", "TTDS_group7", port = 3306,charset='utf8')
 cursor = db.cursor()
 countrydir = {'Asia':'Asia',
               'Middleeast': "Middle East",
@@ -108,6 +108,8 @@ def get_info_thread(q, fro, page, size):
 
 def send_sql(i, date, title, body, country, image, theme, news_url):
     e = cursor.execute("select id from news where url=" + repr(news_url))
+    if len(body)>65535:
+        return
     if e != 0:
         print('"%s" exists!' % title)
         return False
