@@ -16,7 +16,7 @@ class mysql_pipeline:
 
     # connect to the databases
     def open_spider(self, spider):
-        self.conn = pymysql.connect(host='127.0.0.1',
+        self.conn = pymysql.connect(host='34.89.114.242',
                                     port=3306,
                                     user='root',
                                     password='!ttds2021',
