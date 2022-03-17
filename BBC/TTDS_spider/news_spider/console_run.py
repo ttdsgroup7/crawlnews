@@ -5,14 +5,12 @@ import datetime
 import time
 
 name = 'BBC_news'
-cmd1 = 'scrapy crawl {0} '.format(name)
 def crawler_command():
+    global name
     time_now = time.time()
-    global cmd1
+    cmd1 = 'scrapy crawl {0} '.format(name)
     cmd1 = cmd1 + "-s LOG_FILE={0}.log".format(time_now)
     os.system(cmd1)
-    #cmdline.execute(cmd1.split())
-
 
 if __name__ == '__main__':
     #scheduler = BlockingScheduler(timezone="Europe/London")
